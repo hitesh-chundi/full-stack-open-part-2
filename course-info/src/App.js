@@ -50,11 +50,22 @@ const Content = (props) => {
   )
 }
 
+const Total = (props) => {
+  let sum = 0;
+  // console.log(typeof sum);
+  // console.log(typeof parts[0].exercises);
+  {props.parts.map(element => sum = sum + element.exercises)}
+  return (
+    <p><strong> {props.text1} {sum} {props.text2}</strong></p>
+  )
+}
+
 const Course = ({ course }) => {
   return (
     <div>
       <Header value={course.name} />
       <Content parts={course.parts} />
+      <Total text1="Total of" parts={course.parts} text2="exercises" />
     </div>
   )
   
